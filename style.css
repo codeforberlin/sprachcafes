@@ -18,3 +18,8 @@ html, body {
 .navbar-brand > img {
     display: inline;
 }
+
+.leaflet-popup-content p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
