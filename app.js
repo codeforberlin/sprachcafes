@@ -27,11 +27,11 @@ function init() {
 
     $.ajax({
         type: 'GET',
-        url: 'sprachcafes.csv',
+        url: 'sprachcafes.txt',
         dataType: 'text',
         success: function(csv) {
             var data = $.csv.toArrays(csv, {
-                separator: ';'
+                separator: '\t'
             });
 
             $.each(data, function (key, values) {
@@ -48,7 +48,15 @@ function init() {
                     street = values[7],
                     plz = values[8],
                     city = values[9],
-                    district = values[10];
+                    district = values[10],
+                    link = values[13],
+                    facebook_link = values[14],
+                    contact = values[15],
+                    mail = values[16],
+                    phone = values[17]
+                    comment_venue = values[18],
+                    comment_group = values[19],
+                    comment_time = values[20];
 
                 var address = street + ', ' + plz + ' ' + city;
 
@@ -57,6 +65,31 @@ function init() {
                 html += '<p>' + venue + '</p>';
                 html += '<p>' + address + '</p>';
                 html += '<p>Geöffnet: ' + day + '., ' + opens + ' Uhr - ' + closes + ' Uhr';
+
+                if (link) {
+                    html += '<p><a href="' + link + '">' + link + '</a></p>';
+                }
+                if (facebook_link) {
+                    html += '<p><a href="' + facebook_link + '">' + facebook_link + '</a></p>';
+                }
+                if (contact) {
+                    html += '<p>Kontakt: ' + contact + '</p>';
+                }
+                if (mail) {
+                    html += '<p>Email: ' + mail + '</p>';
+                }
+                if (phone) {
+                    html += '<p>Telefon: ' + phone + '</p>';
+                }
+                if (comment_venue) {
+                    html += '<p>' + comment_venue + '</p>';
+                }
+                if (comment_group) {
+                    html += '<p>' + comment_group + '</p>';
+                }
+                if (comment_time) {
+                    html += '<p>' + comment_time + '</p>';
+                }
 
                 if (!isNaN(lat) && !isNaN(lon)) {
                     var marker = L.marker([lon, lat]).addTo(map);
