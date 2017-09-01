@@ -8,13 +8,14 @@ var opt = {
             'maxZoom': 15
         }
     },
-    // location: {
-    //     center: [51.165, 10.455278], // Germany
-    //     zoom: 5
-    // },
     location: {
-        center: [52.518611, 13.408333], // Berlin
-        zoom: 12
+        center: [51.165, 10.455278], // Germany
+        zoom: 5
+    },
+    locate_control: {
+        locateOptions: {
+            maxZoom: 12
+        }
     }
 }
 
@@ -24,6 +25,12 @@ function init() {
     L.tileLayer(opt.map.url, opt.map.options).addTo(map);
 
     map.setView(opt.location.center, opt.location.zoom);
+
+    var locate_control = L.control.locate(opt.locate_control);
+
+    map.addControl(locate_control);
+
+    locate_control.start();
 
     $.ajax({
         type: 'GET',

@@ -23,3 +23,9 @@ html, body {
     margin-top: 5px;
     margin-bottom: 5px;
 }
+.leaflet-control-locate a {
+    padding: 0;
+}
+.leaflet-control-locate.requesting a {
+  padding: 0;
+}
