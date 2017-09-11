@@ -18,6 +18,12 @@ html, body {
 .navbar-brand > img {
     display: inline;
 }
+.navbar-form .radio {
+    line-height: 32px;
+}
+.navbar-form label {
+    padding-right: 5px;
+}
 
 .leaflet-popup-content p {
     margin-top: 5px;
@@ -27,5 +33,5 @@ html, body {
     padding: 0;
 }
 .leaflet-control-locate.requesting a {
-  padding: 0;
+    padding: 0;
 }
