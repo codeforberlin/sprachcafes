@@ -22,8 +22,11 @@ var opt = {
 }
 
 function load_map() {
-    map = L.map('map');
+    map = L.map('map', {
+        zoomControl: false
+    });
 
+    new L.Control.Zoom({ position: 'bottomleft' }).addTo(map);
     L.tileLayer(opt.map.url, opt.map.options).addTo(map);
 
     map.setView(opt.location.center, opt.location.zoom);

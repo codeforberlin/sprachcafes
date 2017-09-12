@@ -22,9 +22,19 @@ html, body {
     line-height: 32px;
 }
 .navbar-form label {
-    padding-right: 5px;
+    display: inline-block;
+    padding-right: 20px;
 }
-
+@media (max-width: 768px) {
+    .navbar-form fieldset {
+        margin: 0;
+    }
+    .navbar-form label {
+        display: block;
+        line-height: 24px;
+        padding-right: 0;
+    }
+}
 .leaflet-popup-content p {
     margin-top: 5px;
     margin-bottom: 5px;
